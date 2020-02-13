@@ -5,7 +5,7 @@
 
 ## 快速开始
 
-需要 **Python 3.6** 以上版本吧
+需要 **Python 3.6** 以上版本
 
 ```bash
 git clone https://github.com/sunny0826/wuhan2020-grafana.git
