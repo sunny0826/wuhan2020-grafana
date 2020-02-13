@@ -27,7 +27,7 @@ docker pull guoxudongdocker/feiyan-datasource
 ### 运行镜像
 
 ```bash
-docker run -d --name datasource -p 3000:8088 guoxudongdocker/feiyan-datasource 
+docker run -d --name datasource -p 8088:3000 guoxudongdocker/feiyan-datasource 
 ```
 
 ### 停止镜像
