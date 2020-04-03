@@ -1,11 +1,19 @@
+English | [简体中文](README_CN.md)
 # wuhan2020-grafana
-使用 Grafana 展示疫情实时动态
+
+### Updated April 3,2020
+
+China will hold a national mourning on April 4,2020 for martyrs who died in the fight against COVID19 and for compatriots who died from the disease, the State Council announced.
+
+## Summary
+
+Use Grafana to display COVID-19 data
 
 ![](dosc/show.png)
 
-## 快速开始
+## Quick Start
 
-需要 **Python 3.6** 以上版本
+Requires **Python 3.6** or later
 
 ```bash
 git clone https://github.com/sunny0826/wuhan2020-grafana.git
@@ -14,33 +22,33 @@ pip install -r requestment
 python index.py
 ```
 
-## 在本地使用 docker 容器运行
+## Run with docker
 
-安装[Docker客户端](https://www.docker.com/products/docker-desktop)
+install [Docker](https://www.docker.com/products/docker-desktop)
 
-### 拉取镜像
+### Pull Image
 
 ```bash
 docker pull guoxudongdocker/feiyan-datasource
 ```
 
-### 运行镜像
+### Run Image
 
 ```bash
 docker run -d --name datasource -p 8088:3000 guoxudongdocker/feiyan-datasource 
 ```
 
-### 停止镜像
+### Stop Image
 
 ```bash
 docker stop grafana
 ```
 
-## 导入 Grafana
+## Import Grafana
 
-启动 Grafana，需要安装 [SimpleJson](https://grafana.com/grafana/plugins/grafana-simple-json-datasource/installation) 插件
+Runing Grafana，And need install [SimpleJson](https://grafana.com/grafana/plugins/grafana-simple-json-datasource/installation) plugin.
 
-### 使用 docker 镜像启动（推荐）
+### Use docker runing Grafana(Recommend)
 
 ```bash
 docker run \
@@ -50,24 +58,22 @@ docker run \
         grafana/grafana grafana 
 ```
 
-### 添加数据源 
+### Add DataSource 
 
-选择 SimpleJson 为数据源，填入名称和服务地址 `http://host.docker.internal:8088`
+Select SimpleJson as the DataSource and fill in the `Name` and `URL`:`http://host.docker.internal:8088`
 
 ![](dosc/datasource.png)
 
 
-### 导入 dashboard
+### Import Dashboard
 
-点击 `Upload.json file`
+Click on `Upload.json file`
 
 ![](dosc/import.png)
 
-选择 `wuhan2020-grafana/dashboard.json`
+select `wuhan2020-grafana/dashboard.json`
 
-## K8S 部署
-
-直接使用 `yaml` 文件即可部署
+## Deploy on K8S
 
 ```bash
 kubectl apply -f deploy.yaml
